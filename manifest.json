@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "Snap Tabs",
+    "version": "1.1.2",
+    "description": "This extension can help you to take a snap of currently open tabs.",
+    "icons": {
+        "128": "icon128.png",
+        "48": "icon48.png",
+        "16": "icon16.png"
+    },
+
+    "author": "ravikp7",
+    "browser_action": {
+        "default_icon": "icon128.png",
+        "default_title": "Snap Tabs",
+        "default_popup": "popup.html"
+    },
+    "permissions": ["storage","tabs"],
+    "homepage_url": "https://ravikp7.github.io"
+    
+}

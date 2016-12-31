@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Snap Tabs</title>
+        
+        <link rel="stylesheet" href="flatly-bootstrap.min.css">
+        <style>
+        body{min-width: 250px;}
+        </style>
+    </head>
+    <body style="background-color: #1ABC9C; font-family: Roboto;">
+        
+        <h3 style="text-align: center; color: #2C3E50;" id="head">
+            <img src="icon1.png" height="35px" width="35px">
+            Snap Tabs
+            </h3>
+        
+        
+        
+        
+        <div style="text-align: center;">
+            <input class="form-control" type="text" id="name" placeholder="Name for current tabs snap" >
+           <a class="btn btn-primary" id="save">  Save  </a>
+        </div>
+        <br>
+        
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h5> Saved Snaps</h5></div>
+        <div class="panel-body" style="background-color: #1ABC9C;">
+        <select class="form-control" id="snaps">
+            
+        </select>
+        </div>
+        </div>
+
+
+        <p style="text-align: center;">
+        <a href="#" id="open" class="btn btn-primary" >Open</a>
+        <a href="#" id="remove" class="btn btn-primary">Remove</a>
+        </p>
+        
+        <script src="jquery-3.1.0.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <script src="popup.js"></script>
+    </body>
+</html>
