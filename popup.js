@@ -1,5 +1,5 @@
 
-var list={},name="";
+var name="";
 
 
 
@@ -96,8 +96,31 @@ function savesnaps(){
 
 
 
+
+// Add date and time to text input
+function adddate(){
+
+    var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var dat=new Date();
+    var d=dat.getDate();
+    var m=months[dat.getMonth()];
+    var hr=dat.getHours();
+    if (hr>12){hr=hr-12+":"+dat.getMinutes()+" PM";}
+    else if (hr==12){hr=hr+":"+dat.getMinutes()+" PM";}
+    else {hr=hr+":"+dat.getMinutes()+" AM";}
+    console.log(d);
+    document.getElementById('name').value+=(" "+m+" "+d+", "+hr);
+}
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function(){
     document.getElementById('save').addEventListener('click',savesnaps);
     document.getElementById('open').addEventListener('click',createtabs);  
     document.getElementById('remove').addEventListener('click',deletesnap);
+    document.getElementById('date').addEventListener('click',adddate);
 });
