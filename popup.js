@@ -27,14 +27,32 @@ loadsnaps();
 //Deletes snaps
 function deletesnap(){
 
-    var x=window.confirm("Are you sure, You want to delete this snap?");
-    if(x){
+    
     chrome.storage.sync.remove(document.getElementById('snaps').value,function(){
         console.log("deleted");
     });
     loadsnaps();
-    }
-    else{}
+    show();
+   
+}
+
+
+
+
+
+//Confirm snap deletion
+function conf(){
+    document.getElementById('buttons').style.display='none';
+    document.getElementById('conf').style.display='block';
+}
+
+
+
+
+// Show buttons again
+function show(){
+    document.getElementById('buttons').style.display='block';
+    document.getElementById('conf').style.display='none';
 }
 
 
@@ -67,7 +85,7 @@ function savesnaps(){
     name=name.trim();
     name=name.replace(/\s{2,}/g, ' ');
 
-    if(!name) {alert("Enter name for snap.");}
+    if(!name) {document.getElementById("alert").style.display='block';}
     else{
     chrome.tabs.query({'currentWindow': true},function(tabs){
         tabs.forEach(function(tab,index){
@@ -122,6 +140,9 @@ function adddate(){
 document.addEventListener('DOMContentLoaded', function(){
     document.getElementById('save').addEventListener('click',savesnaps);
     document.getElementById('open').addEventListener('click',createtabs);  
-    document.getElementById('remove').addEventListener('click',deletesnap);
+    document.getElementById('remove').addEventListener('click',conf);
     document.getElementById('date').addEventListener('click',adddate);
+    document.getElementById('name').addEventListener('focus',function(){document.getElementById("alert").style.display='none';});
+    document.getElementById('yes').addEventListener('click',deletesnap);
+    document.getElementById('no').addEventListener('click',show);
 });

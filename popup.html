@@ -14,6 +14,10 @@
             <img src="icon1.png" height="35px" width="35px">
             Snap Tabs
             </h3>
+            <div id="alert" class="alert alert-dismissible alert-danger" style="display: none;">
+  
+  <strong>Enter a name for snap!</strong> 
+</div>
         
         
         
@@ -35,9 +39,14 @@
         </div>
 
 
-        <p style="text-align: center;">
+        <p id="buttons" style="text-align: center;">
         <a href="#" id="open" class="btn btn-primary" >Open</a>
         <a href="#" id="remove" class="btn btn-primary">Remove</a>
+        </p>
+        <p id="conf" style="display: none; text-align: center;">
+            <b>Are you sure, delete this snap?</b><br>
+            <a href="#" id="yes" class="btn btn-danger btn-sm" >Yes</a>
+        <a href="#" id="no" class="btn btn-danger btn-sm">No</a>
         </p>
         
         <script src="jquery-3.1.0.min.js"></script>
