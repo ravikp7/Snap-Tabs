@@ -64,6 +64,9 @@ function createtabs(){
 function savesnaps(){
    var t=[]; 
     name=document.getElementById('name').value;
+    name=name.trim();
+    name=name.replace(/\s{2,}/g, ' ');
+
     if(!name) {alert("Enter name for snap.");}
     else{
     chrome.tabs.query({'currentWindow': true},function(tabs){
@@ -80,9 +83,7 @@ function savesnaps(){
         });
         
         
-        chrome.storage.sync.get([name],function(obj){
-            document.getElementById('gt').value=obj[name];
-        });
+        
 
         
     });
