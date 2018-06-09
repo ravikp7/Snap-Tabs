@@ -122,7 +122,7 @@ function adddate(){
     if (hr>12){hr=hr-12+":"+min+" PM";}
     else if (hr==12){hr=hr+":"+min+" PM";}
     else {hr=hr+":"+min+" AM";}
-    if (parseInt(hr)<12){hr= "0"+hr}
+    if (parseInt(hr)<10){hr= "0"+hr}
     document.getElementById('name').value+=(" "+m+" "+d+", "+hr);
 }
 
