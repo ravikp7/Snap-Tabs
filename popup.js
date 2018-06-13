@@ -119,10 +119,12 @@ function adddate(){
     var min=dat.getMinutes();
     if(d<10){d="0"+d;}
     if(min<10){min="0"+min;}
-    if (hr>12){hr=hr-12+":"+min+" PM";}
+    if (hr>12){hr=hr-12;}
     else if (hr==12){hr=hr+":"+min+" PM";}
     else {hr=hr+":"+min+" AM";}
-    if (parseInt(hr)<10){hr= "0"+hr}
+    if(hr<12){hr= "0"+hr+":"+min+" PM";}
+
+    console.log(hr);
     document.getElementById('name').value+=(" "+m+" "+d+", "+hr);
 }
 
