@@ -117,12 +117,13 @@ function adddate(){
     var m=months[dat.getMonth()];
     var hr=dat.getHours();
     var min=dat.getMinutes();
+    var pr= hr-12;
     if(d<10){d="0"+d;}
     if(min<10){min="0"+min;}
-    if (hr>12){hr=hr-12;}
+    if (hr>12){hr="0"+pr;}
     else if (hr==12){hr=hr+":"+min+" PM";}
     else {hr=hr+":"+min+" AM";}
-    if(hr<12){hr= "0"+hr+":"+min+" PM";}
+    if(hr<12){hr= hr+":"+min+" PM";}
 
     console.log(hr);
     document.getElementById('name').value+=(" "+m+" "+d+", "+hr);
