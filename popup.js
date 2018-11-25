@@ -26,8 +26,6 @@ loadsnaps();
 
 //Deletes snaps
 function deletesnap(){
-
-    
     chrome.storage.sync.remove(document.getElementById('snaps').value,function(){
         console.log("deleted");
     });
@@ -99,11 +97,6 @@ function savesnaps(){
         chrome.storage.sync.set(ob,function(){
             console.log("saved");
         });
-        
-        
-        
-
-        
     });
     
         setTimeout(loadsnaps,30);
@@ -118,16 +111,21 @@ function savesnaps(){
 
 // Add date and time to text input
 function adddate(){
-
     var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     var dat=new Date();
     var d=dat.getDate();
     var m=months[dat.getMonth()];
     var hr=dat.getHours();
-    if (hr>12){hr=hr-12+":"+dat.getMinutes()+" PM";}
-    else if (hr==12){hr=hr+":"+dat.getMinutes()+" PM";}
-    else {hr=hr+":"+dat.getMinutes()+" AM";}
-    console.log(d);
+    var min=dat.getMinutes();
+    var pr= hr-12;
+    if(d<10){d="0"+d;}
+    if(min<10){min="0"+min;}
+    if (hr>12){hr="0"+pr;}
+    else if (hr==12){hr=hr+":"+min+" PM";}
+    else {hr=hr+":"+min+" AM";}
+    if(hr<12){hr= hr+":"+min+" PM";}
+
+    console.log(hr);
     document.getElementById('name').value+=(" "+m+" "+d+", "+hr);
 }
 
